@@ -1,20 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Link, NavLink } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
+import './App.styled.js';
+import * as S from './App.styled';
+import Routes from './Routes';
 
-const App: React.FC = () => {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <S.StyledApp>
+      <Navbar collapseOnSelect bg="light">
+        <Link to="/">Scratch</Link>
+        <Navbar.Toggle />
+        <Navbar.Collapse>
+          <Nav>
+            <NavLink to="/signup">Signup</NavLink>
+            <NavLink to="/login">Login</NavLink>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      <Routes />
+    </S.StyledApp>
   );
 };
 
